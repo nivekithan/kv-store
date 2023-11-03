@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "kv-store",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "init": "ts-node --esm ./scripts/init.ts",
+    "dev": "cargo watch -- pnpm run init"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tsconfig/node18": "^18.2.2",
+    "@types/node": "^20.8.10",
+    "esbuild": "^0.19.5",
+    "esbuild-register": "^3.5.0",
+    "ts-node": "^10.9.1"
+  },
+  "dependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "type": "module"
+}

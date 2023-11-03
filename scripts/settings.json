@@ -1,0 +1,4 @@
+{
+  "command": "./target/debug/kv-store",
+  "ports": [8000, 8010]
+}

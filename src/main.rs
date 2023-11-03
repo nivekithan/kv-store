@@ -1,4 +1,4 @@
-use rocket::{futures::lock::Mutex, State};
+use rocket::{futures::lock::Mutex, Config, State};
 use std::collections::HashMap;
 
 #[macro_use]
@@ -11,7 +11,7 @@ async fn get_key(key: &str, kv_store: &State<Mutex<HashMap<String, String>>>) ->
 
     match value {
         Some(v) => v.to_string(),
-        None => format!("Not avaliable"),
+        None => format!("Not avaliable 2"),
     }
 }
 
@@ -30,7 +30,16 @@ async fn set_key(
 
 #[launch]
 fn rocket() -> _ {
-    rocket::build()
+    let args: Vec<String> = std::env::args().collect();
+
+    println!("{args:?}");
+
+    let port = args.get(1).unwrap().parse::<u16>().unwrap();
+
+    let mut rocket_config = Config::debug_default();
+    rocket_config.port = port;
+
+    rocket::custom(rocket_config)
         .mount("/", routes![get_key, set_key])
         .manage(Mutex::new(HashMap::<String, String>::new()))
 }
