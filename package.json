@@ -16,6 +16,7 @@
     "@types/node": "^20.8.10",
     "esbuild": "^0.19.5",
     "esbuild-register": "^3.5.0",
+    "kill-port": "^2.0.1",
     "ts-node": "^10.9.1"
   },
   "dependencies": {

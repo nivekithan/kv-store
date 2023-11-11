@@ -1,6 +1,8 @@
 use rocket::{futures::lock::Mutex, Config, State};
 use std::collections::HashMap;
 
+mod greeter;
+
 #[macro_use]
 extern crate rocket;
 
